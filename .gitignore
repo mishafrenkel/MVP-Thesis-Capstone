@@ -3,6 +3,7 @@
 # Logs
 logs
 *.log
+reference.txt
 
 # Runtime data
 pids
