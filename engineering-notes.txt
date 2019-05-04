@@ -1,0 +1,8 @@
+May 4th, 2019:
+    Redux is more manageable if you group by feature as opposed to 
+    functionality, similar to the Ducks approach. In the “grouping by
+    functionality” approach where all actions, reducers, etc live in 
+    a separate folder, it can be increasingly difficult to navigate between 
+    files when the number grows in production. When you group by feature,
+    you always have the files you need in a single, compact location.
+
