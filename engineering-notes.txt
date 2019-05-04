@@ -1,8 +1,10 @@
 May 4th, 2019:
+    Using redux to manage state, building the UI in react, and deploying on either Heroku or GH Pages 
+
     Redux is more manageable if you group by feature as opposed to 
-    functionality, similar to the Ducks approach. In the “grouping by
-    functionality” approach where all actions, reducers, etc live in 
-    a separate folder, it can be increasingly difficult to navigate between 
-    files when the number grows in production. When you group by feature,
-    you always have the files you need in a single, compact location.
+    functionality, similar to the Ducks approach : 
+    
+    https://medium.freecodecamp.org/scaling-your-redux-app-with-ducks-6115955638be
+    
+    When you group by feature you always have the files you need in a single, compact location.
 
