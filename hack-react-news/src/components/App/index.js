@@ -5,6 +5,19 @@ import { colorsDark } from 'styles/palatte';
 
 import { Wrapper, Title } from './styles';
 
-
+class App extends Component {
+  render() {
+    return (
+      <ThemeProvider theme={colorsDark}>
+        <div>
+          <Wrapper>
+            <Title>Hacker News Reader</Title>
+            <List />
+          </Wrapper>
+        </div>
+      </ThemeProvider>
+    );
+  }
+}
 
 export default App;
