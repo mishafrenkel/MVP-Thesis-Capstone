@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Title, Host, ExternalLink, Description, CommentLink } from './styles';
+import { Item, Title, Host, ExternalLink, Description, CommentLink } from './styles.js';
 
 const LINK_REL = 'nofollow noreferrer noopener';
 
@@ -8,7 +8,7 @@ const ListItem = () => {
         <Item>
             <ExternalLink href='https://www.github.com' rel={LINK_REL} target="_blank">
                 <Title>
-                    The Developer Community <Host>{}</Host>
+                    The Developer Community <Host>(github.com)</Host>
                 </Title>
             </ExternalLink>
             <Description>

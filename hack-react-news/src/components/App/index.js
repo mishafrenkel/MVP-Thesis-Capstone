@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
 import List from 'components/List';
-import { colorsDark } from 'styles/palatte';
+import { colorsDark } from '/Users/MyFolder/mvp/hrsf113-mvp/hack-react-news/src/styles/palette.js';
 
 import { Wrapper, Title } from './styles';
 
