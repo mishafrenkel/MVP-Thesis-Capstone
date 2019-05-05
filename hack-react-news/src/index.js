@@ -18,14 +18,16 @@ const renderApp = () => {
   }
 
   ReactDOM.render(
+    <Provider store={store}>
       <div>
         <GlobalStyles />
         <App />
       </div>,
+    </Provider>,
     document.getElementById('root'),
   );
 };
 
 renderApp();
 
-
+registerServiceWorker();
