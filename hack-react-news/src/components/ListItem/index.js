@@ -6,9 +6,9 @@ const LINK_REL = 'nofollow noreferrer noopener';
 const ListItem = () => {
     return (
         <Item>
-            <ExternalLink href='https://github.com' rel={LINK_REL} target="_blank">
+            <ExternalLink href='https://www.github.com' rel={LINK_REL} target="_blank">
                 <Title>
-                    The Developer Community <Host>{github.com}</Host>
+                    The Developer Community <Host>{}</Host>
                 </Title>
             </ExternalLink>
             <Description>
