@@ -37,3 +37,5 @@ May 5th, 2019:
 
    Using react-redux binginds, I can conenct the components to the store and receive Redux state as props. Anytime there is an update to the store 
    the props will also change causing a re-render of the component which in turn updates the UI.
+
+  

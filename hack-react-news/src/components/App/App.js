@@ -6,6 +6,10 @@ import { colorsDark } from '/Users/MyFolder/mvp/hrsf113-mvp/hack-react-news/src/
 import { Wrapper, Title } from './styles';
 
 class App extends Component {
+  componentDidMount() {
+      this.props.fetchStoriesFirstPage();
+  }
+  
   render() {
     return (
       <ThemeProvider theme={colorsDark}>
