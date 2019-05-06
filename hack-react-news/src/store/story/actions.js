@@ -8,7 +8,7 @@ export const actionTypes = {
     FETCH_STORY_IDS_FAILURE: `${NS}/FETCH_STORIES_IDS_FAILURE`,
     FETCH_STORIES_REQUEST: `${NS}/FETCH_STORIES_SUCCESS`,
     FETCH_STORIES_SUCCESS: `${NS}/FETCH_STORIES_SUCCESS`,
-    FETCH_STORIES_SUCCESS: `${NS}/FETCH_STORIES_SUCCESS`,
+    FETCH_STORIES_FAILURE: `${NS}/FETCH_STORIES_FAILURE`,
 };
 
 const action = (type, payload) => ({ type, payload });
@@ -32,6 +32,13 @@ const actions = {
         return dispatch => {
             const { storyIds, page } = payload;
             dispatch(action(actionTypes.FETCH_STORIES_REQUEST, payload));
-        }
-    }
-}
+
+            return hackerNewsAPI 
+              .getStoriesByPage(storyIds, page)
+                .then(stories => dispatch(action(actioTypes.FETCH_STORIES_SUCCESS, { stories })))
+                .catch(err => dispatch(action(actionTypes.FETCH_STORIES_FAILURE, err)));
+        };
+    },
+};
+
+export default actions;
