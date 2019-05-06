@@ -8,4 +8,3 @@ export const ListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
 `;
-
