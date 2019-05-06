@@ -1,4 +1,3 @@
 
-
 Each story has a title, author, score, time of post, source URL, and comment count. 
 

@@ -6,7 +6,10 @@ May 4th, 2019:
     
     https://medium.freecodecamp.org/scaling-your-redux-app-with-ducks-6115955638be
     
-    When you group by feature you always have the files you need in a single, compact location.
+May 5th, 2019
+    API calls introduce side effects because they will inject outside data into our state. 
+    Redux-thunk will be used here to manage side effects and dispatch functions in additiona to action objects.
+    Axios will be used to fetch data from the api 
 
-   
-Each story has a title, author, score, time of post, source URL, and comment count. 
+
+
