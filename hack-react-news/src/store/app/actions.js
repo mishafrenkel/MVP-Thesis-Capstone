@@ -1,4 +1,3 @@
-
 const NS = '@hnReader/app';
 
 export const actionTypes = {
