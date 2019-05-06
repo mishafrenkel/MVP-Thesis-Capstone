@@ -3,8 +3,8 @@ import actions from 'store/story/actions';
 import App from './App';
 
 const mapStateToProps = state => ({
-  stories: state.story.stories, 
-  page: state.story.page, 
+  stories: state.story.stories,
+  page: state.story.page,
   storyIds: state.story.storyIds,
   isFetching: state.story.isFetching,
 });
@@ -14,6 +14,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  mapStateToProps, 
+  mapStateToProps,
   mapDispatchToProps,
 )(App);

@@ -7,7 +7,7 @@ const middlewareList = [];
 
 middlewareList.push(thunk);
 if (!isProd) {
-    middlewareList.push(createLogger());
+  middlewareList.push(createLogger());
 }
 
 const middleware = compose(applyMiddleware(...middlewareList));

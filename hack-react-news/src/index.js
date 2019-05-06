@@ -8,26 +8,28 @@ import registerServiceWorker from './registerServiceWorker';
 
 setGlobalStyles();
 
-const renderApp = () => {
-  // No intial state for now, pass in empty object for state
-  const store = configureStore({});
+ReactDOM.render(<App />, document.getElementById('root'));
 
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('Initial state printing ->');
-    console.log(store.getState());
-  }
+// const renderApp = () => {
+//   // No intial state for now, pass in empty object for state
+//   const store = configureStore({});
 
-  ReactDOM.render(
-    <Provider store={store}>
-      <div>
-        <GlobalStyles />
-        <App />
-      </div>,
-    </Provider>,
-    document.getElementById('root'),
-  );
-};
+//   if (process.env.NODE_ENV !== 'production') {
+//     console.log('Initial state printing ->');
+//     console.log(store.getState());
+//   }
 
-renderApp();
+//   ReactDOM.render(
+//     <Provider store={store}>
+//       <div>
+//         <GlobalStyles />
+//         <App />
+//       </div>,
+//     </Provider>,
+//     document.getElementById('root'),
+//   );
+// };
 
-registerServiceWorker();
+// renderApp();
+
+// registerServiceWorker();

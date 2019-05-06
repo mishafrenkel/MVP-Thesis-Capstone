@@ -17,7 +17,7 @@ class App extends Component {
         <div>
           <Wrapper>
             <Title>Hacker News Reader</Title>
-            <List stories={stories}/>
+            <List stories={stories} />
           </Wrapper>
         </div>
       </ThemeProvider>

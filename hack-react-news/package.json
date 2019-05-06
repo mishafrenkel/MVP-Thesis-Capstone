@@ -40,6 +40,7 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {
+    "eslint-config-hackreactor": "github:hackreactor-labs/eslint-config-hackreactor",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "install": "^0.12.2",
