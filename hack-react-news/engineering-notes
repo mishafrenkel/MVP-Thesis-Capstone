@@ -26,4 +26,13 @@ May 5th, 2019:
 
    Additonal reducers will be implemented to manage stories inside the application 
 
+   Actions objects will contain thunk functions that will manage requests. By dispatching functions instead of action objects, I am able to dispatch Actions
+   at different points during the request lifecycle. 
+
+   The getTopStoryIds function will make the API call to get full list of stories.
+
+   In the success callback of getTopStoryIds, I dispatch the fetchstories action to retreive the first page of results for story items. 
+
+   When API call succeeds, I dispatch the success action which will update the Redux store with the next data. 
+
    
