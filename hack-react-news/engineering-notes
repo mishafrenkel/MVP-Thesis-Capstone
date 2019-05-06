@@ -14,3 +14,16 @@ May 5th, 2019:
     Redux-thunk will be used to dispatch functions as well as action objects. 
     Axios will be used to make the API call and fetch the data (by returning a promise)
 
+   /v0/topstories endpoint returns all top story IDs which is ~400–500 items in the list. 
+
+   Since this implementation fetches stories individually, this can cause a bottleneck in performance.
+
+   To solve this, I will only fetch 20 stories at a time and slice the story ID array based on current page
+   and return that section of story items. 
+
+   I will call /v0/item/:id for each story ID and then use Promise.all to condense the response promises into a single array resolving to one .then() 
+   and preserving the ranking form the order of story IDs. 
+
+   Additonal reducers will be implemented to manage stories inside the application 
+
+   

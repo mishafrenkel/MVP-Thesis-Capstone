@@ -8,3 +8,9 @@ May 4th, 2019:
     
     When you group by feature you always have the files you need in a single, compact location.
 
+May 5th, 2019:
+
+    APIs introduce side effects because they inject outside data into our state. 
+    Redux-thunk will be used to dispatch functions as well as action objects. 
+    Axios will be used to make the API call and fetch the data (by returning a promise)
+
