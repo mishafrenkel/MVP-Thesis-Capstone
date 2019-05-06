@@ -1,0 +1,16 @@
+May 4th, 2019:
+    Using redux to manage state, building the UI in react, and deploying on either Heroku or GH Pages 
+
+    Redux is more manageable if you group by feature as opposed to 
+    functionality, similar to the Ducks approach : 
+    
+    https://medium.freecodecamp.org/scaling-your-redux-app-with-ducks-6115955638be
+    
+    When you group by feature you always have the files you need in a single, compact location.
+
+May 5th, 2019:
+
+    APIs introduce side effects because they inject outside data into our state. 
+    Redux-thunk will be used to dispatch functions as well as action objects. 
+    Axios will be used to make the API call and fetch the data (by returning a promise)
+
