@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'store';
 import App from 'components/App';
-import GlobalStyles from 'styles/globals';
+import setGlobalStyles from 'styles/globals';
 import registerServiceWorker from './registerServiceWorker';
 
-
+setGlobalStyles();
 
 const renderApp = () => {
   // No intial state for now, pass in empty object for state
