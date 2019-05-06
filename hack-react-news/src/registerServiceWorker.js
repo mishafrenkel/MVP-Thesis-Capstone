@@ -111,4 +111,3 @@ const isLocalhost = Boolean(
       });
     }
   }
-  
