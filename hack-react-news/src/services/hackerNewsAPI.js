@@ -13,8 +13,8 @@ const getPageValues = ({ begin, end, items}) => items.slice(begin, end);
 hackerNewsApi.getTopStoryIds = () => client.get(`/topstories${JSON_QUERY}`);
 hackerNewsApi.getStory = id => client.get(`/item/${id}${JSON_QUERY}`);
 hackerNewsApi.getStoriesByPage = (ids, page) => {
-    const { begin, end } = getPagesSlice(PAGE_LIMIT, page);
-    const activeIds = getPageValues({ begin, end, items: ids});
+    const { begin, end } = getPageSlice(PAGE_LIMIT, page);
+    const activateIds = getPageValues({ begin, end, items: ids});
     const storyPromises = activateIds.map(id => hackerNewsApi.getStory(id));
     return Promise.all(storyPromises);
 };
