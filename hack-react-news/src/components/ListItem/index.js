@@ -1,27 +1,25 @@
 import React from 'react';
-import { Item, Title, Host, ExternalLink, Description, CommentLink } from './styles.js';
-import TimeAgo from 'react-timeago';
 import getSiteHostname from 'utils/getSiteHostname';
-import getArticleLink, { HN_USER, HN_ITEM } from 'utils/getArticleLink';
+import TimeAgo from 'react-timeago';
+import getArticleLink, { USER, ARTICLE } from 'utils/getArticleLink';
 
-const LINK_REL = 'nofollow noreferrer noopener';
+import { Item, Title, Host, ExernalLink, Description, CommentLink } from './styles';
 
 const ListItem = ({ by, kids = [], score, url, title, id, type, time }) => {
   const site = getSiteHostname(url) || 'news.ycombinator.com';
   const link = getArticleLink({ url, id });
-  const commentUrl = `${HN_ITEM}${id}`;
-  const userUrl = `${HN_USER}${by}`;
+  const commentUrl = `${ARTICLE}${id}`;
 
   return (
     <Item>
-      <ExternalLink href={link} rel={LINK_REL} target="_blank">
+      <ExernalLink href={link} rel="nofollow noreferrer noopener" target="_blank">
         <Title>
           {title} <Host>({site})</Host>
         </Title>
-      </ExternalLink>
+      </ExernalLink>
       <Description>
         {score} points by{' '}
-        <CommentLink href={userUrl} rel="nofollow noreferrer noopener" target="_blank">
+        <CommentLink href={`${USER}${by}`} rel="nofollow noreferrer noopener" target="_blank">
           {by}
         </CommentLink>{' '}
         <TimeAgo date={new Date(time * 1000).toISOString()} />{' | '}

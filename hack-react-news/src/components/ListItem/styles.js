@@ -23,7 +23,7 @@ export const Host = styled.span`
   font-size: 12px;
 `;
 
-export const ExternalLink = styled.a`
+export const ExernalLink = styled.a`
   color: ${({ theme }) => theme.text};
   display: flex;
   width: 100%;

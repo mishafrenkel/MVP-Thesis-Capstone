@@ -1,33 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'components/App/index';
-import GlobalStyles from 'styles/globals';
 import { Provider } from 'react-redux';
-import configureStore from 'store/index.js';
-import * as serviceWorker from './serviceWorker';
-import hackerNewsApi from 'services/hackerNewsApi';
-
-// ReactDOM.render(< App />, document.getElementById('root'));
-hackerNewsApi.getTopStoryIds().then(ids => console.log(ids));
+import configureStore from 'store';
+import App from 'components/App';
+import GlobalStyles from 'styles/globals';
+import loadInitialState from 'store/middleware/localStorageMiddleware/loadInitialState';
+import registerServiceWorker from './registerServiceWorker';
 
 const renderApp = () => {
-  const initialState = {};
+  const initialState = loadInitialState();
   const store = configureStore(initialState);
 
-  store.dispatch({ type: '@hnClone/@@INIT' });
-  
-  // setGlobalStyles();
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('Initial state ->');
+    console.log(store.getState());
+  }
+
   ReactDOM.render(
     <Provider store={store}>
+      <div>
         <GlobalStyles />
-          <App />
+        <App />
+      </div>
     </Provider>,
     document.getElementById('root'),
   );
 };
 
 renderApp();
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+registerServiceWorker();

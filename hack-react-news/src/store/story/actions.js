@@ -1,43 +1,36 @@
 import hackerNewsApi from 'services/hackerNewsApi';
+import { buildRequestCreator } from 'store/utils';
 
-// Name space it
-const NS = '@hnClone/story';
+const NS = '@hnReader/story';
 
 export const actionTypes = {
-  FETCH_STORY_IDS_REQUEST: `${NS}/FETCH_STORY_IDS_REQUEST`,
-  FETCH_STORY_IDS_SUCCESS: `${NS}/FETCH_STORY_IDS_SUCCESS`,
-  FETCH_STORY_IDS_FAILURE: `${NS}/FETCH_STORY_IDS_FAILURE`,
-  FETCH_STORIES_REQUEST: `${NS}/FETCH_STORIES_REQUEST`,
-  FETCH_STORIES_SUCCESS: `${NS}/FETCH_STORIES_SUCCESS`,
-  FETCH_STORIES_FAILURE: `${NS}/FETCH_STORIES_FAILURE`,
+  GET_STORY_IDS: `${NS}/GET_STORY_IDS`,
+  GET_STORIES: `${NS}/GET_STORIES`,
 };
 
-const action = (type, payload) => ({ type, payload });
-
 const actions = {
-  fetchStoryIds: (payload ={}) => {
-    return dispatch => {
-      dispatch(action(actionTypes.FETCH_STORY_IDS_REQUEST), payload);
-
-      return hackerNewsApi.getTopStoryIds()
+  fetchStoryIds: buildRequestCreator(
+    actionTypes.GET_STORY_IDS,
+    ({ request, payload, dispatch }) => {
+      dispatch(request.request(payload));
+      return hackerNewsApi
+        .getTopStoryIds()
         .then(storyIds => {
-          dispatch(action(actionTypes.FETCH_STORY_IDS_SUCCESS, { storyIds }));
-          dispatch(actions.fetchStories({ storyIds, page: 0 }));
+          dispatch(request.success({ storyIds }));
+          dispatch(actions.getStories({ storyIds, page: 0 }));
           return storyIds;
         })
-        .catch(err => dispatch(action(actionTypes.FETCH_STORY_IDS_FAILURE, err)));
-    }
-  },
-  fetchStories: (payload = {}) => {
-    return dispatch => {
-      dispatch(action(actionTypes.FETCH_STORIES_REQUEST, payload));
-      const { storyIds, page } = payload;
-
-      return hackerNewsApi.getStoriesByPage(storyIds, page)
-        .then(stories => dispatch(action(actionTypes.FETCH_STORIES_SUCCESS, { stories })))
-        .catch(err => dispatch(action(actionTypes.FETCH_STORIES_FAILURE, err)));
-    }
-  },
+        .catch(err => dispatch(request.failure(err)));
+    },
+  ),
+  getStories: buildRequestCreator(actionTypes.GET_STORIES, ({ request, payload, dispatch }) => {
+    const { storyIds, page } = payload;
+    dispatch(request.request(payload));
+    return hackerNewsApi
+      .getStoriesByPage(storyIds, page)
+      .then(stories => dispatch(request.success({ stories })))
+      .catch(err => dispatch(request.failure(err)));
+  }),
 };
 
 export default actions;

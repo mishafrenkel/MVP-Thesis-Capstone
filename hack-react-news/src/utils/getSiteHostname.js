@@ -1,14 +1,14 @@
-import url from 'url';
+import urlParser from 'url';
 
-const getSiteHostname = siteUrl => {
+const getSiteHostname = url => {
   let hostname = '';
 
-  if (siteUrl) {
-    if (!siteUrl.includes('//')) {
-      siteUrl = `http://${siteUrl}`;
+  if (url) {
+    if (!url.includes('//')) {
+      url = `http://${url}`;
     }
 
-    hostname = url.parse(siteUrl).hostname;
+    hostname = urlParser.parse(url).hostname;
   }
 
   if (hostname.includes('www.')) {
