@@ -5,7 +5,7 @@ export const actionTypes = {
 };
 
 const actions = {
-  setTheme: (payload = {}) => ({ type: actionTypes.SET_THEME, payload }),
+  setTheme: (payload = {}) => ({ type: actionTypes.SET_THEME, payload}),
 };
 
 export default actions;

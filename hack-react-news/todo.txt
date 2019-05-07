@@ -1,1 +1,1 @@
-HackerNewsAPI: https://github.com/HackerNews/API
+hackerNewsApi: https://github.com/HackerNews/API

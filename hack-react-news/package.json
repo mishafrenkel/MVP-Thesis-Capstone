@@ -8,6 +8,7 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "react-scripts": "3.0.0",
+    "react-timeago": "^4.4.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
@@ -44,7 +45,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "install": "^0.12.2",
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "redux-logger": "^3.0.6"
   },
   "keywords": [],
   "author": "Michael Frenkel",
