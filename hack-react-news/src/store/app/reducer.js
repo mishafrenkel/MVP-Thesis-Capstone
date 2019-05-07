@@ -1,20 +1,27 @@
 import { actionTypes } from './actions';
+import { layouts, themes } from './utils';
 
 const getInitialState = () => ({
-    theme: 'dark',
+  theme: themes.dark,
+  layout: layouts.list,
 });
 
 const app = (state = getInitialState(), { type, payload }) => {
-    switch (type) {
-        case actionTypes.SET_THEME: 
-         return {
-         // the keys of the state will be replaced by the keys in ...state that match — in this case theme.
-             ...state, 
-             ...payload,
-         } ;
-         default: 
-           return state;
-    }
+  console.log('payload: ', payload);
+  switch (type) {
+    case actionTypes.SET_THEME:
+      return {
+        ...state,
+        ...payload,
+      };
+    case actionTypes.SET_LAYOUT:
+      return {
+        ...state,
+        ...payload,
+      };
+    default:
+      return state;
+  }
 };
 
 export default app;
