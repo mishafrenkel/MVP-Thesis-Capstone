@@ -58,7 +58,7 @@ class App extends Component {
                   href="https://github.com/mishafrenkel"
                   target="_blank"
                 >
-                  (click here to view the source code)
+                  
                 </GithubLink>
               </Title>
               <div>
