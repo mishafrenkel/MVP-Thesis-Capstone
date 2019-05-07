@@ -1,23 +1,44 @@
 import React, { Component } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import { ThemeProvider } from 'styled-components';
+import { colorsDark } from 'styles/palette';
 import List from 'components/List';
-import { colorsDark } from '/Users/MyFolder/mvp/hrsf113-mvp/hack-react-news/src/styles/palette.js';
+import Loader from 'components/Loader';
 
 import { Wrapper, Title } from './styles';
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchStoriesFirstPage();
-    // this.setBodyBackgroundColor();
   }
+
+  fetchStories = () => {
+    const { storyIds, page, fetchStories, isFetching } = this.props; 
+    if (!isFetching) {
+      fetchStories({ storyIds, page});
+    }
+  }
+
   render() {
-    const { stories } = this.props;
+    const { stories, hasMoreStories } = this.props;
     return (
       <ThemeProvider theme={colorsDark}>
         <div>
           <Wrapper>
-            <Title>Hacker News Reader</Title>
+            <Title>Hacker News</Title>
+            <InfiniteScroll
+              dataLength={stories.length}
+              next={this.fetchStories}
+              hasMore={hasMoreStories}
+              loader={<Loader />}
+              style={{
+                height: '100%',
+                overflow: 'visible',
+              }}
+            >
             <List stories={stories}/>
+            </InfiniteScroll>
+
           </Wrapper>
         </div>
       </ThemeProvider>
