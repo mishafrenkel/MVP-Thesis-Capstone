@@ -2,6 +2,7 @@
   "name": "hacker-news-reader",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://mishafrenkel.github.io/MVP-Thesis-Capstone",
   "dependencies": {
     "axios": "^0.18.0",
     "enzyme": "^3.7.0",
